@@ -1,0 +1,2 @@
+# IMDBScraperFro
+React Redux
