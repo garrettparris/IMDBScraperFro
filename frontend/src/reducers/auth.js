@@ -1,8 +1,9 @@
 import * as types from "../actions/types";
 
 const initialState = {
-  username: "",
-  isLoggedIn: false
+    username: "",
+    password: "",
+    isLoggedIn: false
 };
 
 const authReducer = (state = initialState, action) => {
@@ -11,10 +12,16 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         username: action.username,
+        password: action.password,
         isLoggedIn: true
       };
-    case types.AUTH_LOGOUT:
-      return initialState;
+      case types.AUTH_LOGOUT:
+          return {
+            ...state,
+            username: "",
+            password: "",
+            isLoggedIn: false
+          }
     default:
       return state;
   }
